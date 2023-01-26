@@ -8,14 +8,14 @@ interface PokemonCardProps {
 
 const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
   return (
-    <div className="card col-xl-2 col-lg-3 col-md-3 col-sm-5 shadow glass">
+    <div className="card col-xl-2 col-lg-3 col-md-3 col-sm-5 shadow glass" style={{ width: "13rem" }}>
       <img
         src={
           pokemon.imageUrl ||
           "https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536849_960_720.png"
         }
         alt="pokemon"
-        height="170"
+        height="170px"
       />
       <div className="card-body text-center">
         <h4 className="card-title">{pokemon.name}</h4>

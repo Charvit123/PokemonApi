@@ -14,22 +14,23 @@ const Navbar = () => {
     }
   };
   return (
-    <nav className="border mb-5 p-3 glass">
+    <nav className="mb-5 p-3">
       <div
         style={{ height: "100% !important" }}
-        className="p-0 container d-flex items-center justify-content-between "
+        className="p-0 d-flex items-center justify-content-between "
       >
-        <Link className="fs-5" to="/">
+        <Link className="fs-1" to="/">
           PokeApi
         </Link>
-        <form onSubmit={searchPokemonFormSubmitHandler}>
+        <form onSubmit={searchPokemonFormSubmitHandler} className="d-flex p-2 gap-3 form-inline">
           <input
             type="text"
             placeholder="Enter id or name"
             ref={searchInputRef}
+            className="form-control shadow"
           />
-          <button type="submit" className="">
-            <SearchIcon />
+          <button type="submit" className="btn btn-primary shadow">
+            <SearchIcon/>
           </button>
         </form>
       </div>

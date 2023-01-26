@@ -1,4 +1,3 @@
-import React from "react";
 
 const SearchIcon = () => {
   return (
@@ -6,9 +5,9 @@ const SearchIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
+      strokeWidth={2}
       stroke="currentColor"
-      style={{ height: "16px", width: "16px" }}
+      style={{ height: "16px", width: "16px" ,marginTop: "-0.3rem" }}
     >
       <path
         strokeLinecap="round"

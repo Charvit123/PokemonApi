@@ -33,9 +33,9 @@ export const PokemonDetails = () => {
           alt={`${pokemon.name}-poster`}
         />
         <ul className="card-body text-center list-unstyled">
-          <li>Name:{pokemon.name}</li>
-          <li>Weight:{pokemon.weight}</li>
-          <li>Height:{pokemon.height}</li>
+          <li>Name : {pokemon.name}</li>
+          <li>Weight : {pokemon.weight}</li>
+          <li>Height : {pokemon.height}</li>
 
           <li className="my-2 mx-auto">
             {pokemon.types.map((currPokemonType, idx) => {
