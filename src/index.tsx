@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import "bootstrap/dist/css/bootstrap.min.css";
 import {
   createBrowserRouter,
   Navigate,
@@ -11,6 +10,7 @@ import {
 import { PokemonDetails } from "./components/PokemonDetails";
 import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
+import RouterContext from "./components/RouterContext";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +45,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider
-      router={router}
-      fallbackElement={<div>Loading spinner</div>}
-    />
+    <RouterContext>
+      <RouterProvider
+        router={router}
+        fallbackElement={<div>Loading spinner</div>}
+      />
+    </RouterContext>
   </React.StrictMode>
 );

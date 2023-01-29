@@ -1,4 +1,3 @@
-
 const SearchIcon = () => {
   return (
     <svg
@@ -7,7 +6,7 @@ const SearchIcon = () => {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      style={{ height: "16px", width: "16px" ,marginTop: "-0.3rem" }}
+      className="h-4 w-4"
     >
       <path
         strokeLinecap="round"

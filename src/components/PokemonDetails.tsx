@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import usePokemonDetailsApi from "../hooks/usePokemonDetailsApi";
+import colorTypeOfPokemon from "./colorTypeOfPokemon";
 
 export const PokemonDetails = () => {
   const { nameOrId } = useParams();
@@ -15,43 +16,59 @@ export const PokemonDetails = () => {
   }
 
   if (error) {
-    return <div className="text-danger text-center fs-1">Error: {error}</div>;
+    return <div className="">Error: {error}</div>;
   }
 
   if (pokemon) {
     return (
-      <div
-        className="card mx-auto my-5 shadow glass"
-        style={{ width: "18rem" }}
-      >
-        <img
-          className="card-img-top"
-          src={
-            pokemon.imageUrl ||
-            "https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536849_960_720.png"
-          }
-          alt={`${pokemon.name}-poster`}
-        />
-        <ul className="card-body text-center list-unstyled">
-          <li>Name : {pokemon.name}</li>
-          <li>Weight : {pokemon.weight}</li>
-          <li>Height : {pokemon.height}</li>
+      <div className="flex justify-center relative top-8 sm:top-6 md:top-5 lg:top-5">
+        <div className="overflow-hidden shadow-2xl bg-white hover:bg-gradient-to-bl from-sky-300 via-slate-50 to-sky-300 rounded-lg pb-1 px-4 max-w-sm  text-center relative bottom-2">
+          <img
+            src={
+              pokemon.imageUrl ||
+              "https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536849_960_720.png"
+            }
+            alt={`${pokemon.name}-poster`}
+            className="h-72"
+          />
+          <ul className="">
+            <div className="space-y-1">
+              <li className="text-lg font-semibold">Name : {pokemon.name}</li>
+              <li className="text-lg font-semibold">
+                Weight : {pokemon.weight}
+              </li>
+              <li className="text-lg font-semibold">
+                Height : {pokemon.height}
+              </li>
 
-          <li className="my-2 mx-auto">
-            {pokemon.types.map((currPokemonType, idx) => {
-              return (
-                <span key={idx} className="badge bg-secondary mx-1 bg-info">
-                  {currPokemonType}
-                </span>
-              );
-            })}
-          </li>
-          <li>
-            <Link to="/">
-              <button className="btn btn-secondary mt-3">Go Back</button>
-            </Link>
-          </li>
-        </ul>
+              <li className="mt-2">
+                {pokemon.types.map((currPokemonType, idx) => {
+                  const color: string =
+                    colorTypeOfPokemon[currPokemonType] +
+                    " rounded-xl p-1 px-2 m-1";
+                  console.log(color);
+                  return (
+                    <span className={color}>
+                      <span key={idx} className="">
+                        {currPokemonType}
+                      </span>
+                    </span>
+                  );
+                })}
+              </li>
+            </div>
+            <li>
+              <Link to="/">
+                <button
+                  className="inline-block text-lg bg-gray-200 rounded-full px-3 py-1 font-semibold text-black bg-gradient-to-r from-gray-100 to-gray-400 
+          mr-2 mb-2 mt-4"
+                >
+                  Go Back
+                </button>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }
